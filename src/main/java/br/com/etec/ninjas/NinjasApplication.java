@@ -1,0 +1,25 @@
+package br.com.etec.ninjas;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class NinjasApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(NinjasApplication.class, args);
+	}
+
+}
+
+
+
+
+
+
+
+//Executar o projeto
+//mvn spring-boot:run
+
+//Atualizar o maven
+//mvn clean install -U
