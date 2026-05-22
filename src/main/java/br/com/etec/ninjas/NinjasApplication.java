@@ -11,15 +11,3 @@ public class NinjasApplication {
 	}
 
 }
-
-
-
-
-
-
-
-//Executar o projeto
-//mvn spring-boot:run
-
-//Atualizar o maven
-//mvn clean install -U
