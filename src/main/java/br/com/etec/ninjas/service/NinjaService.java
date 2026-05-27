@@ -14,6 +14,6 @@ public class NinjaService {
 
     public Ninja cadastrarNinja(Ninja ninja) {
         return ninjaRepository.save(ninja);
-        //método cadastar ninja usando o método save do ninjaRepository para salvar o ninja no banco de dados e retorna o ninja cadastrado. 
+        //método cadastrar ninja usando o método save do ninjaRepository para salvar o ninja no banco de dados e retorna o ninja cadastrado. 
     }
 }
