@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.etec.ninjas.model.Ninja;
 import br.com.etec.ninjas.service.NinjaService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/ninjas")
@@ -17,9 +18,9 @@ public class NinjaController {
     private NinjaService ninjaService;
 
     @PostMapping
-    public Ninja cadastrarNinja (@RequestBody Ninja ninja) {
+    public Ninja cadastrarNinja (@Valid @RequestBody Ninja ninja) {
         return ninjaService.cadastrarNinja(ninja);
-        //método cadastrar ninja usando a anotação @PostMapping para mapear a requisição POST, recebe um objeto Ninja no corpo da requisição e chama o método cadastrarNinja do ninjaService para cadastrar o ninja e retorna o ninja cadastrado.
+        //método cadastrar ninja usando a anotação @PostMapping para mapear a requisição POST, recebe um objeto Ninja no corpo da requisição e chama o método cadastrarNinja do ninjaService para cadastrar o ninja e retorna o ninja cadastrado, com validação e refinamento.
     }
 
     
