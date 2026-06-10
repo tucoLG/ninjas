@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 
@@ -19,12 +20,11 @@ import lombok.Data;
 @Valid
 public class Ninja {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_ninja;
 
     @Column(name = "nome_ninja", nullable = false)
-    @NotBlank(message = "O nome do ninja é obrigatório")
-    @Size(min = 3, max = 255, message = "O nome do ninja deve conter entre 3 e 255 caracteres")
+    @Size(min = 2, max = 100, message = "O nome do ninja deve conter entre 2 e 100 caracteres")
     private String nome;
 
     @Column(name = "cpf_ninja", nullable = false, unique = true)

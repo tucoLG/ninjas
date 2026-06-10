@@ -1,6 +1,9 @@
 package br.com.etec.ninjas.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +26,12 @@ public class NinjaController {
         //método cadastrar ninja usando a anotação @PostMapping para mapear a requisição POST, recebe um objeto Ninja no corpo da requisição e chama o método cadastrarNinja do ninjaService para cadastrar o ninja e retorna o ninja cadastrado, com validação e refinamento.
     }
 
+    @GetMapping
+    public List<Ninja> listarNinjas() {
+        return ninjaService.listarNinjas();
+    }
+
+    }
+
     
-}
+
