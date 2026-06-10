@@ -1,6 +1,7 @@
 package br.com.etec.ninjas.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,20 @@ public class NinjaService {
         return ninjaRepository.save(ninja);
         //método cadastrar ninja usando o método save do ninjaRepository para salvar o ninja no banco de dados e retorna o ninja cadastrado. 
     }
+
     public List<Ninja> listarNinjas() {
         return ninjaRepository.findAll();
+    }
+
+    public Optional<Ninja> pesquisarNinja (Long id) {
+        return ninjaRepository.findById(id);
+    }
+
+    public Ninja pesquisarNomeNinja (String nome) {
+        return ninjaRepository.findByNome(nome);
+    }
+
+    public List<Ninja> pesquisarNinjaPorParteDoNome (String nome) {
+        return ninjaRepository.findByNomeContaining(nome);
     }
 }
