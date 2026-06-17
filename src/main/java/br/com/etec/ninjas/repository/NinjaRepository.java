@@ -12,4 +12,6 @@ public interface NinjaRepository extends JpaRepository<Ninja, Long>{
     
     Ninja findByNome(String nome);
     List<Ninja> findByNomeContaining(String nome);
+
+    
 }

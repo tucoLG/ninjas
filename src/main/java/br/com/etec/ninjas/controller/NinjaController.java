@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,7 +49,17 @@ public class NinjaController {
     public List<Ninja> pesquisarPorParteDoNome (@PathVariable String nome) {
         return ninjaService.pesquisarNinjaPorParteDoNome(nome);
     }
+
+    @PutMapping ("/{id}")
+    public Ninja atualizaNinja (@PathVariable Long id, @Valid @RequestBody Ninja ninja) {
+        return ninjaService.atualizarNinja(id, ninja);
     }
+    
+    @DeleteMapping ("/{id}")
+    public void deletarNinja (@PathVariable Long id) {
+        ninjaService.deletarNinja(id);
+    }
+}
 
     
 

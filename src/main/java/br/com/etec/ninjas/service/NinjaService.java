@@ -35,4 +35,19 @@ public class NinjaService {
     public List<Ninja> pesquisarNinjaPorParteDoNome (String nome) {
         return ninjaRepository.findByNomeContaining(nome);
     }
+
+    public Ninja atualizarNinja (Long id, Ninja ninjaAtualizado) {
+        Optional<Ninja> ninjaCadastrado = ninjaRepository.findById(id);
+        
+        if(ninjaCadastrado.isPresent()) {
+          Ninja ninja = ninjaCadastrado.get();
+          
+          ninja.setNome(ninjaAtualizado.getNome());
+          ninja.setCpf(ninjaAtualizado.getCpf());
+          ninja.setEmail(ninjaAtualizado.getEmail());
+
+          return ninjaRepository.save(ninja);
+        }
+    return null;    
+   }
 }
